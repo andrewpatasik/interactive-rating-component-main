@@ -1,19 +1,25 @@
 @font-face {
-  font-family: 'Overpass';
+  font-family: "Overpass";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/overpass/v11/qFdH35WCmI96Ajtm81GlU9s.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url(https://fonts.gstatic.com/s/overpass/v11/qFdH35WCmI96Ajtm81GlU9s.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Overpass';
+  font-family: "Overpass";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/overpass/v11/qFdH35WCmI96Ajtm81GlU9s.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url(https://fonts.gstatic.com/s/overpass/v11/qFdH35WCmI96Ajtm81GlU9s.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
 }
 
 :root {
@@ -37,7 +43,195 @@ html {
 }
 
 body {
-  font-size: .9375rem;
-  font-family: 'Overpass', sans-serif;
+  font-size: 0.9375rem;
+  font-family: "Overpass", sans-serif;
   font-weight: 400;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 0 1.75rem 0 1.75rem;
+  background-color: var(--very-darkblue);
+}
+
+li {
+  list-style: none;
+}
+
+/* components */
+#card {
+  height: 55%;
+  background-color: var(--darkblue);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  justify-content: space-between;
+}
+
+#card__badge {
+  flex-shrink: 0;
+  background-image: url("./images/icon-star.svg");
+  width: 48px;
+  height: 48px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 100%;
+}
+
+#card__rating__content > h1 {
+  margin: 1rem 0 1rem 0;
+}
+
+#card__rating__form__form {
+  flex-basis: 100%;
+}
+
+#card__rating__form__scale {
+  justify-content: space-between;
+  margin: 1rem 0 1rem 0;
+}
+
+#card__rating__form__scale > li {
+  background-color: var(--very-darkblue);
+  width: 48px;
+  height: 48px;
+}
+
+#card__rating__form__scale > li:hover {
+  cursor: pointer;
+  background-color: var(--lightgrey);
+  color: var(--white);
+}
+
+#card__rating__form__scale > li:focus {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+#card__rating__form__scale > li:active {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+
+#card__rating__form__button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: var(--orange);
+  border: none;
+  text-transform: uppercase;
+}
+
+#card__rating__form__button:hover {
+  cursor: pointer;
+  background-color: var(--white);
+  color: var(--orange);
+}
+
+#card__feedback__illustration {
+  width: 10rem;
+}
+
+#card__feedback__result {
+  width: fit-content;
+  padding: 0.6rem 1rem 0.6rem 1rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+#card__feedback__heading {
+  margin: 0.5rem 0;
+  font-weight: 400;
+}
+
+#card__feedback__detail {
+  text-align: center;
+}
+
+/* utilities */
+.container {
+  width: auto;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.rounded-full {
+  border-radius: 100%;
+}
+
+.rounded-pill {
+  border-radius: 2rem;
+}
+
+.spacing-tight {
+  letter-spacing: 0.03rem;
+}
+
+.spacing-narrow {
+  letter-spacing: 0.2rem;
+}
+
+.line-height-loose {
+  line-height: 1.3rem;
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-lightgray {
+  color: var(--lightgrey);
+}
+
+.text-mediumgray {
+  color: var(--mediumgrey);
+}
+
+.text-orange {
+  color: var(--orange);
+}
+
+.bg-verydarkblue {
+  background-color: var(--very-darkblue);
+}
+
+@media (min-width: 1440px) {
+  #root {
+    padding: 0;
+  }
+
+  #card {
+    width: 24rem;
+    height: 24rem;
+    padding: 1.75rem;
+    justify-content: start;
+  }
+
+  #card__rating__form {
+    margin-top: auto;
+  }
+
+  #card__rating__form__scale {
+    margin: 0 0 1.75rem 0;
+  }
+
+  [class*="line-height"] {
+    line-height: 1.75rem;
+  }
 }

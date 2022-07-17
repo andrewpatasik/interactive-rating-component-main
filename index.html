@@ -2,17 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
+      rel="shortcut icon"
       href="./images/favicon-32x32.png"
-    />
-    <link rel="stylesheet" href="style.css">
-    <title>Frontend Mentor | Interactive rating component</title>
+      type="image/x-icon"/>
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Interactive Rating Component</title>
   </head>
   <body>
-    <script src="index.js" />
+    <div id="root">
+      <main id="card" class="container flex flex-column">
+        <div id="card__badge" class="container bg-verydarkblue"></div>
+        <section id="card__rating__content" class="container">
+          <h1 class="text-white spacing-tight">How did we do?</h1>
+          <p class="text-lightgray line-height-loose">
+            Please let us know how we did with your support request. All
+            feedback is appreaciated to help us improve our offering!
+          </p>
+        </section>
+        <form method="/" id="card__rating__form" class="container" novalidate>
+          <ul id="card__rating__form__scale" class="container flex text-mediumgray">
+            <li tabindex="1" class="scale flex flex-center rounded-full">1</li>
+            <li tabindex="2" class="scale flex flex-center rounded-full">2</li>
+            <li tabindex="3" class="scale flex flex-center rounded-full">3</li>
+            <li tabindex="4" class="scale flex flex-center rounded-full">4</li>
+            <li tabindex="5" class="scale flex flex-center rounded-full">5</li>
+          </ul>
+          <button id="card__rating__form__button" class="spacing-narrow text-white rounded-pill">submit</button>
+        </form>
+      </main>
+    </div>
+    <script type="module" src="./index.js"></script>
+    <script type="module" src="./helper.js"></script>
   </body>
 </html>
