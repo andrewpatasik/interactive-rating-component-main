@@ -1,6 +1,6 @@
 # Frontend Mentor - Interactive rating component solution
 
-This is a solution to the [Interactive rating component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Interactive rating component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -16,8 +16,6 @@ This is a solution to the [Interactive rating component challenge on Frontend Me
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -31,20 +29,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+<img alt="screenshot" src="./images/screenshot.gif" width="480">
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github repo](https://github.com/andrewpatasik/interactive-rating-component-main)
+- Live Site URL: [Github pages](https://andrewpatasik.github.io/interactive-rating-component-main/)
 
 ## My process
 
@@ -53,37 +43,81 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- DOM API
+- Dynamic rendering with vanilla Javascript
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+In this challenge, I learned to code a little interactivity with Javascript to display a "Thank you" feedback card after the user selected and submitted their rating. To solve this problem two things needed to do:
 
-To see how you can add code snippets, see below:
+- Dynamically generate a new card component to show the feedback.
+- Listen to the "submit event" to render the new card component whenever the user has selected the rating and clicked submit button.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+For the first task, I write a function to generate a new card component using DOM API, this function will bundle some newly created elements and append them to the main card container.
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+const generateFeedbackReceivedComponent = (rating) => {
+  const mainElement = document.getElementById("card");
+  const feedbackIllustrationElement = document.createElement("img");
+  const feedbackResultParagraphElement = document.createElement("p");
+  const feedbackHeadingElement = document.createElement("h1");
+  const feedbackDetailParagraphElement = document.createElement("p");
+
+  feedbackIllustrationElement.id = "card__feedback__illustration";
+  feedbackIllustrationElement.src = "./images/illustration-thank-you.svg";
+  feedbackIllustrationElement.alt = "feeback illustration";
+
+  feedbackResultParagraphElement.id = "card__feedback__result";
+  feedbackResultParagraphElement.classList.add("text-orange");
+  feedbackResultParagraphElement.classList.add("bg-darkblue");
+  feedbackResultParagraphElement.classList.add("rounded-pill");
+  feedbackResultParagraphElement.textContent = `You selected ${rating.state} out of 5`;
+
+  feedbackHeadingElement.id = "card__feedback__heading";
+  feedbackHeadingElement.classList.add("text-white");
+  feedbackHeadingElement.textContent = "Thank you!";
+
+  feedbackDetailParagraphElement.id = "card__feedback__detail";
+  feedbackDetailParagraphElement.classList.add("text-lightgray");
+  feedbackDetailParagraphElement.classList.add("line-height-loose");
+  feedbackDetailParagraphElement.textContent =
+    "We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!";
+
+  mainElement.append(
+    feedbackIllustrationElement,
+    feedbackResultParagraphElement,
+    feedbackHeadingElement,
+    feedbackDetailParagraphElement
+  );
+};
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+The function takes an argument which is the user's rating number that should be displayed on the feedback card.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+And for the second task, I write a click event handler function that will render the newly generated card component when the submit button is clicked.
+
+```js
+formElement.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!rating.state) {
+    window.alert("you must give rating");
+    return;
+  }
+
+  renderFeedbackReceivedComponent(rating);
+});
+```
+
+the ```renderFeedbackReceivedComponent()``` function is responsible for dynamically rendering the new card component. This function will first remove all the children elements in the card container and append the new component elements into the DOM.
+
+```js
+export const renderFeedbackReceivedComponent = (rating) => {
+  return clearMainElementChildren(() =>
+    generateFeedbackReceivedComponent(rating)
+  );
+};
+```
 
 ### Continued development
 
@@ -100,14 +134,6 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - [andrewpatasik.github.io](https://andrewpatasik.github.io/)
+- Frontend Mentor - [@andrewpatasik](https://www.frontendmentor.io/profile/andrewpatasik)
+- Twitter - [@andrewpatasik](https://www.twitter.com/andrewpatasik)
