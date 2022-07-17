@@ -66,7 +66,12 @@ li {
 /* components */
 #card {
   height: 55%;
-  background-color: var(--darkblue);
+  /* background-color: var(--darkblue); */
+  background: linear-gradient(
+    0deg,
+    rgba(21, 32, 43, 1) 50%,
+    rgba(32, 39, 48, 1) 93%
+  );
   padding: 1.5rem;
   border-radius: 1.5rem;
   justify-content: space-between;
@@ -96,9 +101,9 @@ li {
 }
 
 #card__rating__form__scale > li {
-  background-color: var(--very-darkblue);
-  width: 48px;
-  height: 48px;
+  background-color: var(--darkblue);
+  width: 40px;
+  height: 40px;
 }
 
 #card__rating__form__scale > li:hover {
@@ -117,7 +122,6 @@ li {
   color: var(--white);
 }
 
-
 #card__rating__form__button {
   width: 100%;
   padding: 0.75rem;
@@ -134,7 +138,7 @@ li {
 }
 
 #card__feedback__illustration {
-  width: 10rem;
+  width: 9rem;
 }
 
 #card__feedback__result {
@@ -145,6 +149,7 @@ li {
 
 #card__feedback__heading {
   margin: 0.5rem 0;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
@@ -207,6 +212,10 @@ li {
   color: var(--orange);
 }
 
+.bg-darkblue {
+  background-color: var(--darkblue);
+}
+
 .bg-verydarkblue {
   background-color: var(--very-darkblue);
 }
@@ -217,10 +226,14 @@ li {
   }
 
   #card {
-    width: 24rem;
-    height: 24rem;
-    padding: 1.75rem;
+    width: 25rem;
+    height: 25rem;
+    padding: 1.75rem 2rem;
     justify-content: start;
+  }
+
+  #card__rating__content > h1 {
+    font-size: 1.875rem;
   }
 
   #card__rating__form {
@@ -229,6 +242,19 @@ li {
 
   #card__rating__form__scale {
     margin: 0 0 1.75rem 0;
+  }
+
+  #card__rating__form__scale > li {
+    width: 52px;
+    height: 52px;
+  }
+
+  #card__feedback__illustration {
+    width: 10rem;
+  }
+
+  #card__feedback__heading {
+    font-size: 1.875rem;
   }
 
   [class*="line-height"] {

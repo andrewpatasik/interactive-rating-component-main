@@ -42,7 +42,7 @@ const generateFeedbackReceivedComponent = (rating) => {
 
   feedbackResultParagraphElement.id = "card__feedback__result";
   feedbackResultParagraphElement.classList.add("text-orange");
-  feedbackResultParagraphElement.classList.add("bg-verydarkblue");
+  feedbackResultParagraphElement.classList.add("bg-darkblue");
   feedbackResultParagraphElement.classList.add("rounded-pill");
   feedbackResultParagraphElement.textContent = `You selected ${rating.state} out of 5`;
 
