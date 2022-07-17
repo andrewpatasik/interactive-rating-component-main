@@ -12,9 +12,7 @@ This is a solution to the [Interactive rating component challenge on Frontend Me
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -53,7 +51,7 @@ In this challenge, I learned to code a little interactivity with Javascript to d
 - Dynamically generate a new card component to show the feedback.
 - Listen to the "submit event" to render the new card component whenever the user has selected the rating and clicked submit button.
 
-For the first task, I write a function to generate a new card component using DOM API, this function will bundle some newly created elements and append them to the main card container.
+For the first task, I write a function to generate a new card component using DOM API, this function will create the feedback card HTML elements and append them to the main card container.
 
 ```js
 const generateFeedbackReceivedComponent = (rating) => {
@@ -121,16 +119,7 @@ export const renderFeedbackReceivedComponent = (rating) => {
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+In this project, I tried to write and structure the code as maintainable as it could be with techniques like loosely coupled code. Because this is a rather small project, it helps me to apply those "clean code" techniques in some parts of the code. But I would like to learn more about clean code techniques and apply them in my future projects..
 
 ## Author
 
